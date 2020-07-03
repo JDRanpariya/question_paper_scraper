@@ -1,11 +1,10 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 
-url = "https://engineering.jainuniversity.ac.in/"
 
 # set the chromedriver to interact with chrome.exe to scrape webpage
 driver = webdriver.Chrome(""" enter your chromedriver path """)
-driver.get(url)
+driver.get("https://engineering.jainuniversity.ac.in/")
 
 question_paper = open("Question_Paper.txt", "a")
 
