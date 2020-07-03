@@ -21,7 +21,7 @@ def navigate_and_return_next_question(button_id, previous_question):
 		soup = BeautifulSoup(content, features="lxml")
 		next_question = soup.findAll("table", id="ContentPlaceHolder1_dlquestions")	
 
-		if next_question[0].text == previous_question[0].text:
+		if next_question[0].text != previous_question[0].text:
 			break
 	return next_question
 
