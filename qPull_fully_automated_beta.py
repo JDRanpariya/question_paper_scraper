@@ -12,20 +12,17 @@ def generate_button_ids():
 
 def navigate_and_return_next_question(button_id, previous_question):
 	#previous question should be unformatted 
-
 	element = driver.find_element_by_id(button_id)
 	element.click()
 	
 	while True:
 		sleep(3)
-
 		content = driver.page_source
 		soup = BeautifulSoup(content, features="lxml")
 		next_question = soup.findAll("table", id="ContentPlaceHolder1_dlquestions")	
 
 		if next_question[0].text == previous_question[0].text:
 			break
-
 	return next_question
 
 
@@ -39,8 +36,8 @@ def add_to_file(question_text):
 
 
 
-driver = webdriver.Chrome("/home/roshan/Downloads/chromedriver")
-driver.get("file:///home/roshan/Documents/MCQ-ANV.html")
+driver = webdriver.Chrome(""" YOUR CHROME DRIVER LOCATION """)
+driver.get("https://engineering.jainuniversity.ac.in/")
 question_list = open("question_list.txt", "a")
 
 
