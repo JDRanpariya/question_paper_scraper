@@ -35,15 +35,12 @@ def add_to_file(question_text):
 	question_list.write("\n\n\n" + Qa)
 
 
-
 driver = webdriver.Chrome(""" YOUR CHROME DRIVER LOCATION """)
 driver.get("https://engineering.jainuniversity.ac.in/")
 question_list = open("question_list.txt", "a")
 
-
 input("\n\nHit enter to start scraping....")
 # A delay for letting the user to login and navigate to the first page of the question
-
 
 content = driver.page_source
 soup = BeautifulSoup(content, features="lxml")
@@ -57,7 +54,6 @@ for button_id in button_ids:
 	add_to_file(previous_question[0].text)
 	next_question = navigate_and_return_next_question(button_id, previous_question)
 	previous_question = next_question
-
 
 add_to_file(previous_question[0].text)
 #writing the last 70th question
